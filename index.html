@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heck - hek3i Portfolio</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Import Inter font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+
+        /* Ensure html and body take full initial height and allow scrolling */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Keep horizontal overflow hidden */
+            scroll-behavior: smooth; /* Smooth scrolling for navigation, if added later */
+            /* Removed height: 100%; to allow natural content-based height */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Tailwind gray-950 equivalent */
+            color: #f9fafb; /* Tailwind gray-50 equivalent */
+        }
+
+        /* Keyframes for the blob animation */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        /* Apply blob animation and add delays */
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+
+        /* Keyframes for fade in from bottom animation */
+        @keyframes fadeInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply fade in from bottom animation */
+        .animate-fade-in-up {
+            animation: fadeInFromBottom 1s ease-out forwards;
+        }
+
+        /* Apply fade in from bottom animation with a delay */
+        .animate-fade-in-up-delay {
+            animation: fadeInFromBottom 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* Scroll animation for general fade-in */
+        .scroll-animation-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animation-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll animation for slide-in from left */
+        .scroll-animation-slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animation-slide-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Scroll animation for slide-in from right */
+        .scroll-animation-slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animation-slide-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Text glow effect for "Web3" feel */
+        .glow-text {
+            text-shadow: 0 0 5px #a78bfa, 0 0 10px #a78bfa, 0 0 15px #a78bfa;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-50 font-inter relative">
+
+    <!-- Hero Section - First impression with name and subtitle -->
+    <section id="hero-section" class="relative min-h-screen flex items-center justify-center text-center">
+        <!-- Dynamic background blobs -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+            <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-3/4 left-1/4 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+        </div>
+        <div class="z-10 p-4 relative">
+            <h1 id="hero-title" class="text-7xl md:text-9xl font-extrabold text-white mb-4 glow-text opacity-0">
+                heck
+            </h1>
+            <p id="hero-subtitle" class="text-2xl md:text-4xl text-gray-300 opacity-0">
+                hek3i
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section - Introduce yourself -->
+    <section id="about-section" class="min-h-screen flex items-center justify-center p-8 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <h2 id="about-title" class="text-5xl md:text-6xl font-bold mb-12 text-center text-purple-400 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out">
+                About Me
+            </h2>
+            <div id="about-content" class="text-lg md:text-xl leading-relaxed space-y-6 scroll-animation-fade-in">
+                <p>
+                    Hey there! I'm your go-to person for all things digital and tech.
+                    From crafting engaging videos that tell a story to diving deep into
+                    the world of cybersecurity, my passion lies in exploring and mastering
+                    the digital frontier.
+                </p>
+                <p>
+                    As a web designer, I love bringing ideas to life with clean code and
+                    captivating visuals. And when it comes to hardware, I'm the guy who
+                    can help you build your dream PC, optimize its performance, and
+                    recommend the best components for your needs. I strive to stay
+                    <span class="text-purple-400 font-semibold">updated to the time</span>,
+                    always learning and adapting to the latest trends and technologies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - Showcase your expertise -->
+    <section id="skills-section" class="min-h-screen flex items-center justify-center p-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 id="skills-title" class="text-5xl md:text-6xl font-bold mb-12 text-center text-purple-400 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out">
+                My Expertise
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Video Editing Skill Card -->
+                <div id="skill-video" class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center transform transition-all duration-1000 hover:scale-105 hover:shadow-purple-700/50 scroll-animation-slide-in-left">
+                    <span class="text-6xl text-blue-400 mb-4">🎬</span>
+                    <h3 class="text-3xl font-semibold mb-3 text-white">Video Editing</h3>
+                    <p class="text-gray-300 text-center">
+                        Crafting compelling visual narratives through seamless editing,
+                        motion graphics, and sound design.
+                    </p>
+                </div>
+                <!-- Cyber Security Skill Card -->
+                <div id="skill-cyber" class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center transform transition-all duration-1000 hover:scale-105 hover:shadow-blue-700/50 scroll-animation-fade-in" style="transition-delay: 0.2s;">
+                    <span class="text-6xl text-green-400 mb-4">🔒</span>
+                    <h3 class="text-3xl font-semibold mb-3 text-white">Cyber Security</h3>
+                    <p class="text-gray-300 text-center">
+                        Exploring the depths of digital defense, ethical hacking, and
+                        securing online environments.
+                    </p>
+                </div>
+                <!-- Web Design Skill Card -->
+                <div id="skill-web" class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center transform transition-all duration-1000 hover:scale-105 hover:shadow-pink-700/50 scroll-animation-fade-in" style="transition-delay: 0.4s;">
+                    <span class="text-6xl text-purple-400 mb-4">💻</span>
+                    <h3 class="text-3xl font-semibold mb-3 text-white">Web Design</h3>
+                    <p class="text-gray-300 text-center">
+                        Building responsive, modern, and aesthetically pleasing websites
+                        with user experience in mind.
+                    </p>
+                </div>
+                <!-- PC Building/Recommender Skill Card -->
+                <div id="skill-pc" class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col items-center transform transition-all duration-1000 hover:scale-105 hover:shadow-green-700/50 scroll-animation-slide-in-right" style="transition-delay: 0.6s;">
+                    <span class="text-6xl text-yellow-400 mb-4">🛠️</span>
+                    <h3 class="text-3xl font-semibold mb-3 text-white">PC Building & Recs</h3>
+                    <p class="text-gray-300 text-center">
+                        Expert advice on custom PC builds, component selection, and
+                        performance optimization for any budget.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Placeholder for future projects -->
+    <section id="projects-section" class="min-h-screen flex items-center justify-center p-8 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <h2 id="projects-title" class="text-5xl md:text-6xl font-bold mb-12 text-center text-purple-400 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out">
+                My Projects
+            </h2>
+            <div id="projects-content" class="bg-gray-800 p-8 rounded-xl shadow-lg text-center scroll-animation-fade-in">
+                <p class="text-gray-300 text-xl mb-4">
+                    Check back soon! This section will be filled with exciting projects
+                    showcasing my diverse skills.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-700 p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-semibold text-white mb-2">Project Alpha</h4>
+                        <p class="text-gray-400">A web design showcase.</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg hover:shadow-xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-semibold text-white mb-2">Cyber Defense Simulation</h4>
+                        <p class="text-gray-400">An exploration in security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - How to reach you -->
+    <section id="contact-section" class="min-h-screen flex items-center justify-center p-8 relative z-10">
+        <div class="max-w-xl mx-auto text-center">
+            <h2 id="contact-title" class="text-5xl md:text-6xl font-bold mb-12 text-center text-purple-400 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out">
+                Get in Touch
+            </h2>
+            <div id="contact-content" class="text-lg md:text-xl leading-relaxed scroll-animation-fade-in">
+                <p class="mb-4">
+                    Feel free to reach out for collaborations, inquiries, or just to
+                    say hello!
+                </p>
+                <p class="text-purple-400 font-bold text-2xl">
+                    your.email@example.com <!-- Placeholder email -->
+                </p>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <!-- Social Media Icons -->
+                    <a
+                        href="#"
+                        class="text-gray-400 hover:text-white transition-colors duration-300 text-4xl"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="text-gray-400 hover:text-white transition-colors duration-300 text-4xl"
+                        aria-label="GitHub"
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="text-gray-400 hover:text-white transition-colors duration-300 text-4xl"
+                        aria-label="YouTube"
+                    >
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-gray-400 text-center p-8 mt-12">
+        <p>&copy; {new Date().getFullYear()} heck. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to check if an element is in the viewport
+        function isInView(element) {
+            if (!element) return false;
+            const rect = element.getBoundingClientRect();
+            // Check if the element's top edge is within the bottom 85% of the viewport AND
+            // if the element's bottom edge is within the top 15% of the viewport.
+            // This makes the animation trigger when the element is significantly visible.
+            return (
+                rect.top <= window.innerHeight * 0.85 &&
+                rect.bottom >= window.innerHeight * 0.15
+            );
+        }
+
+        // Select all elements that need scroll animations
+        const animatedElements = document.querySelectorAll(
+            '.scroll-animation-fade-in, .scroll-animation-slide-in-left, .scroll-animation-slide-in-right, ' +
+            '#about-title, #skills-title, #projects-title, #contact-title' // Titles
+        );
+
+        // Function to handle scroll animations
+        function handleScrollAnimations() {
+            animatedElements.forEach(element => {
+                if (isInView(element)) {
+                    element.classList.add('is-visible');
+                    // For titles, also add the translate-y-0 class
+                    if (element.id.endsWith('-title')) {
+                        element.classList.add('translate-y-0');
+                        element.classList.remove('translate-y-10'); // Remove initial translate-y
+                        element.classList.add('opacity-100'); // Ensure opacity is 1
+                    }
+                } else {
+                    // Optionally, remove 'is-visible' if you want animations to re-trigger on scroll back up
+                    // For a portfolio, usually, you want them to stay visible once animated
+                    // element.classList.remove('is-visible');
+                    // if (element.id.endsWith('-title')) {
+                    //     element.classList.remove('translate-y-0');
+                    //     element.classList.add('translate-y-10');
+                    // }
+                }
+            });
+        }
+
+        // Initial animations for Hero section
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroTitle = document.getElementById('hero-title');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+
+            if (heroTitle) {
+                heroTitle.classList.add('animate-fade-in-up');
+            }
+            if (heroSubtitle) {
+                heroSubtitle.classList.add('animate-fade-in-up-delay');
+                // Manually set animation-delay if it's not working via the class alone for some reason
+                heroSubtitle.style.animationDelay = '0.5s';
+            }
+
+            // Set current year for the footer
+            const footerYear = document.querySelector('footer p');
+            if (footerYear) {
+                footerYear.innerHTML = `&copy; ${new Date().getFullYear()} heck. All rights reserved.`;
+            }
+
+            // Run initial scroll animations check
+            handleScrollAnimations();
+        });
+
+        // Add scroll event listener to trigger animations
+        window.addEventListener('scroll', handleScrollAnimations);
+        // Also run on resize to adjust view calculations
+        window.addEventListener('resize', handleScrollAnimations);
+    </script>
+</body>
+</html>
